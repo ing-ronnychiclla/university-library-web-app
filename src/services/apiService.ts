@@ -9,18 +9,18 @@ const api = axios.create({
     },
 });
 
-// Add error interceptor for debugging
+
 api.interceptors.response.use(
     response => response,
     error => {
         if (error.response) {
-            // Server responded with error status
+        
             console.error(`API Error ${error.response.status}:`, error.response.data);
         } else if (error.request) {
-            // Request made but no response
+            
             console.error('No response from API:', error.request);
         } else {
-            // Error setting up request
+        
             console.error('Error:', error.message);
         }
         return Promise.reject(error);
